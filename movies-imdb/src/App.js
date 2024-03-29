@@ -14,49 +14,49 @@ function App() {
 
   
 
-  useEffect(() => {
-    getMovies();
-  }, [resulted])
+  // useEffect(() => {
+  //   getMovies();
+  // }, [resulted])
 
   // const axios = require('axios');
-const getMovies = async () => {
-  const url = `https://online-movie-database.p.rapidapi.com/auto-complete?q=${movies}`;
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '34a177613dmsh186bfd968ef1dd4p1434aajsnd655501d603d',
-      'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-    }
-  };
+// const getMovies = async () => {
+//   const url = `https://online-movie-database.p.rapidapi.com/auto-complete?q=${movies}`;
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': '34a177613dmsh186bfd968ef1dd4p1434aajsnd655501d603d',
+//       'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+//     }
+//   };
   
-  try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-    setPicture()
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
+//   try {
+//     const response = await fetch(url, options);
+//     const result = await response.text();
+//     setPicture()
+//     console.log(result);
+//   } catch (error) {
+//     console.error(error);
+//   }
 
-  // fetch(`https://imdb8.p.rapidapi.com/auto-complete?q=${movies}`, {
-  //   "method": "GET",
-  //   "headers": {
-  //     "x-rapidapi-host": "imdb8.p.rapidapi.com",
-  //     "x-rapidapi=key": "58fc7b578dmshc11b7b6d9715625p12f7aajsn223266f08fae"
-  //   }
-  // })
-  // .then(response => {
-  //   console.log(response.json());
-  // })
+  fetch(`https://imdb8.p.rapidapi.com/auto-complete?q=${movies}`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi=key": "58fc7b578dmshc11b7b6d9715625p12f7aajsn223266f08fae"
+    }
+  })
+  .then(response => {
+    console.log(response.json());
+  })
   // .then(data => {
   //   setPicture(data.d)
   // })
 
-  // .catch(err => {
-  //   console.error(err);
-  // })
+  .catch(err => {
+    console.error(err);
+  })
 
-}
+// }
 
 const handleChange = (event) => {
   setMovies(event.target.value)
